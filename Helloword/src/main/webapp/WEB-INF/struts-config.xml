@@ -3,6 +3,7 @@
 "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 
 <struts-config>
+
     <form-beans>
         <form-bean name="user" type="com.poly.model.User"/>       
     </form-beans>
@@ -19,6 +20,27 @@
 		parameter="/welcome.jsp">
 	</action>
 	
+	<action path="/add-user" type="com.poly.action.UserAction"  
+		 name="user" parameter="addUser">
+		 <forward name="addUser" path="/user/addUser.jsp"></forward>
+	</action>
+	
+	<action path="/update-user" type="com.poly.action.UserAction"  
+		 name="user" parameter="updateUser">
+		 <forward name="updateUser" path="/user/updateUser.jsp"></forward>
+	</action>
+	
+	<action path="/view-user" type="com.poly.action.UserAction"  
+	 parameter="viewUser">
+		 <forward name="viewUser" path="/user/viewUser.jsp"></forward>
+	</action>
+	
+		<action path="/list-user" type="com.poly.action.UserAction"  
+	 parameter="viewUser">
+		 <forward name="listUser" path="/user/listUser.jsp"></forward>
+	</action>
+	
     </action-mappings>
     <controller locale="true"/>
+    <message-resources parameter="ApplicationResources"/>
 </struts-config>
