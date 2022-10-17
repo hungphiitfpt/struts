@@ -1,0 +1,23 @@
+
+// Tạo mảng A
+let a = [];
+/**
+ * Sự kiện delete customer 
+ */
+ function DeleteCustomer() {
+    // Kiểm tra số lượng input đang được check nếu không có cái nào check alert lỗi
+    if($('.table-customer tbody tr td input:checked').length == 0) {
+        alert("行を選択してください。")
+    } else {
+        // For mảng input
+        $('.table-customer tbody tr td input:checked').each(function () {
+            // Lấy ra những id của customer
+            let id = $(this).parents("tr").find("td:eq(1)").text();
+            // sau đó push các id vào mảng a vừa tạo
+            a.push(id)
+        })
+        // Delete mảng
+        window.location.href = `http://localhost:8080/deleteCustomer.do?Date=&id=${a}`;
+    }
+
+}
